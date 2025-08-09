@@ -9,7 +9,7 @@ pipeline {
     // 定义环境变量
     environment {
         REPO_URL = 'https://github.com/mgxlin/k8s.git'
-        DOCKERHUB_USER = 'mgxlin@gmail.com' // <--- 这里请替换成你的 Docker Hub 用户名
+        DOCKERHUB_USER = 'mgxlin' // <--- 这里请替换成你的 Docker Hub 用户名
         IMAGE_NAME = "${DOCKERHUB_USER}/k8s-springboot"
         TAG = "latest"
         K8S_KUBECONFIG_ID = 'k8s-kubeconfig'
