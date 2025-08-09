@@ -19,7 +19,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo '=== 1. Checkout Code ==='
-                git url: "${REPO_URL}", branch: 'main'
+                git url: "${REPO_URL}", branch: 'master'
             }
         }
 
