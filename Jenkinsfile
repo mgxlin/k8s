@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+            // 确保 'MAVEN_3.8.1' 与你在 Jenkins 全局工具配置中设置的名称一致
+            maven 'mvn'
+        }
+
     // 定义环境变量
     environment {
         REPO_URL = 'https://github.com/mgxlin/k8s.git'
