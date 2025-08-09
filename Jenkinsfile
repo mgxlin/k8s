@@ -66,11 +66,11 @@ pipeline {
                 withCredentials([file(credentialsId: "${K8S_KUBECONFIG_ID}", variable: 'KUBECONFIG_PATH')]) {
                     script {
                         // 替换 YAML 文件中的镜像标签，以实现滚动更新
-                        sh "sed -i 's|${IMAGE_NAME}:latest|${IMAGE_NAME}:${env.BUILD_NUMBER}|g' k8s/deployment.yaml"
+                        sh "sed -i 's|${IMAGE_NAME}:latest|${IMAGE_NAME}:${env.BUILD_NUMBER}|g' deployment.yaml"
 
                         // 应用 Deployment 和 Service 文件
-                        sh "kubectl --kubeconfig=$KUBECONFIG_PATH apply -f k8s/deployment.yaml"
-                        sh "kubectl --kubeconfig=$KUBECONFIG_PATH apply -f k8s/service.yaml"
+                        sh "kubectl --kubeconfig=$KUBECONFIG_PATH apply -f deployment.yaml"
+                        sh "kubectl --kubeconfig=$KUBECONFIG_PATH apply -f service.yaml"
 
                         // 可选：等待 Deployment 滚动更新完成
                         sh "kubectl --kubeconfig=$KUBECONFIG_PATH rollout status deployment/k8s-springboot-deployment"
