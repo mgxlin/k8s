@@ -9,6 +9,6 @@ public class K8sController {
 
     @GetMapping
     public String k8s() {
-        return "Hello k8s!";
+        return "Hello k8s! mgxlin";
     }
 }
